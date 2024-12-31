@@ -28,7 +28,7 @@ async function displayTodos() {
 }
 ```
 
-<div class="card">
+<div class="card" style="padding: 0;">
     ${displayTodos()}
 </div>
 
@@ -72,7 +72,7 @@ async function displayUsers() {
 }
 ```
 
-<div class="card">
+<div class="card" style="padding: 0;">
     ${displayUsers()}
 </div>
 
