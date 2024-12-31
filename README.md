@@ -1,21 +1,5 @@
 # Observable Data
 
-This is an [Observable Framework](https://observablehq.com/framework/) app. To install the required dependencies, run:
-
-```
-npm install
-```
-
-Then, to start the local preview server, run:
-
-```
-npm run dev
-```
-
-Then visit <http://localhost:3000> to preview your app.
-
-For more, see <https://observablehq.com/framework/getting-started>.
-
 ## Project structure
 
 A typical Framework project looks like this:
@@ -47,13 +31,6 @@ A typical Framework project looks like this:
 
 **`observablehq.config.js`** - This is the [app configuration](https://observablehq.com/framework/config) file, such as the pages and sections in the sidebar navigation, and the app’s title.
 
-## Command reference
+## References
 
-| Command           | Description                                              |
-| ----------------- | -------------------------------------------------------- |
-| `npm install`            | Install or reinstall dependencies                        |
-| `npm run dev`        | Start local preview server                               |
-| `npm run build`      | Build your static site, generating `./dist`              |
-| `npm run deploy`     | Deploy your app to Observable                            |
-| `npm run clean`      | Clear the local data loader cache                        |
-| `npm run observable` | Run commands like `observable help`                      |
+- [github actions](https://github.com/allisonhorst/sf-wind-framework/blob/main/.github/workflows/actions.yml)
