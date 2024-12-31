@@ -22,14 +22,21 @@ jobs:
           node-version: 20
           cache: "npm"
       - run: npm ci
+
       - id: date
         run: echo "date=$(TZ=America/America_SaoPaulo date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
       - id: cache-data
         uses: actions/cache@v4
         with:
           path: docs/.observablehq/cache
           key: data-${{ hashFiles('docs/data/*') }}-${{ steps.date.outputs.date }}
       - run: npm run build
+
+      - name: Setup Pages
+        if: github.ref == 'refs/heads/master'
+        uses: actions/configure-pages@v3
+
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v2
         with:
