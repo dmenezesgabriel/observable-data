@@ -1,0 +1,44 @@
+name: Deploy
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [master]
+  schedule:
+    - cron: "15 10 * * *"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+      id-token: write
+      packages: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+      - run: npm ci
+      - id: date
+        run: echo "date=$(TZ=America/America_SaoPaulo date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+      - id: cache-data
+        uses: actions/cache@v4
+        with:
+          path: docs/.observablehq/cache
+          key: data-${{ hashFiles('docs/data/*') }}-${{ steps.date.outputs.date }}
+      - run: npm run build
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: dist
+  deploy-pages:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/deploy-pages@v2
