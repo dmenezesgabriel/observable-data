@@ -1,4 +1,9 @@
 // See https://observablehq.com/framework/config for documentation.
+
+import MarkdownItContainer from "markdown-it-container";
+import MarkdownItWikilinks from "markdown-it-wikilinks";
+import MarkdownItFootnote from "markdown-it-footnote";
+
 export default {
   // The app’s title; used in the sidebar and webpage titles.
   title: "Observable Data",
@@ -35,4 +40,12 @@ export default {
   // typographer: false, // smart quotes and other typographic improvements
   // preserveExtension: false, // drop .html from URLs
   // preserveIndex: false, // drop /index from URLs
+
+  markdownIt: (md) =>
+    md
+      .use(MarkdownItContainer, "card") // ::: card
+      .use(MarkdownItContainer, "tip") // ::: tip
+      .use(MarkdownItContainer, "warning") // ::: warning
+      .use(MarkdownItFootnote)
+      .use(MarkdownItWikilinks()),
 };

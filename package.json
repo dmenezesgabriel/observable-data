@@ -13,6 +13,9 @@
     "@observablehq/framework": "1.13.0",
     "d3-dsv": "3.0.1",
     "d3-time-format": "4.1.0",
+    "markdown-it-container": "4.0.0",
+    "markdown-it-footnote": "4.0.0",
+    "markdown-it-wikilinks": "1.4.0",
     "nodejs-polars": "0.17.0"
   },
   "devDependencies": {

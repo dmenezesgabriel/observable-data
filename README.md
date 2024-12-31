@@ -1,5 +1,7 @@
 # Observable Data
 
+[See it Live](https://dmenezesgabriel.github.io/observable-data/)
+
 ## Project structure
 
 A typical Framework project looks like this:
