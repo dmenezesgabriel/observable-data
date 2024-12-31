@@ -41,6 +41,9 @@ jobs:
 
   deploy:
     needs: build
+    environment:
+      name: github-pages
+
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
