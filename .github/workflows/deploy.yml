@@ -8,7 +8,7 @@ on:
     - cron: "15 10 * * *"
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -34,11 +34,14 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: dist
-  deploy-pages:
-    needs: deploy
-    runs-on: ubuntu-latest
+  deploy:
+    needs: build
     permissions:
       pages: write
       id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/deploy-pages@v2
+      - uses: actions/deploy-pages@v4
