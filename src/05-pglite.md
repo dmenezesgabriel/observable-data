@@ -1,5 +1,7 @@
 # PGLite
 
+_PGLite_ is a PostgreSQL SGBD on a single binary.
+
 ```ts echo display
 import { PGlite } from "https://cdn.jsdelivr.net/npm/@electric-sql/pglite/dist/index.js";
 
@@ -17,9 +19,18 @@ await client.exec(`
   INSERT INTO todo (task, done) VALUES ('Insert some data', true);
   INSERT INTO todo (task) VALUES ('Update a task');
 `);
-
-display(await client.query(`SELECT * FROM todo`));
 ```
+
+```ts echo
+async function displayTodos() {
+  const results = await client.query(`SELECT * FROM todo`);
+  return Inputs.table(results.rows);
+}
+```
+
+<div class="card">
+    ${displayTodos()}
+</div>
 
 ## With an ORM
 
@@ -52,11 +63,18 @@ const user: typeof usersTable.$inferInsert = {
 };
 
 await db.insert(usersTable).values(user);
-
-const users = await db.select().from(usersTable);
-
-display(Inputs.table(users));
 ```
+
+```ts echo
+async function displayUsers() {
+  const users = await db.select().from(usersTable);
+  return Inputs.table(users);
+}
+```
+
+<div class="card">
+    ${displayUsers()}
+</div>
 
 ## Reference
 

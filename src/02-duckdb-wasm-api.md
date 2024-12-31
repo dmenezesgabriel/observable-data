@@ -17,7 +17,7 @@ const result = await conn.query(`SELECT 42 as result`);
 display(Inputs.table(result));
 ```
 
-Or
+You can also use `sql` function:
 
 ```js echo
 import { sql } from "npm:@observablehq/duckdb";
@@ -29,7 +29,7 @@ display(Inputs.table(result));
 
 ## With SQL
 
-**FrontMatter**:
+Defining a _datasource_ on **frontmatter** that will be queried using duckdb `httpfs` extension.
 
 ```yml
 ---
@@ -38,15 +38,29 @@ sql:
 ---
 ```
 
+Accessing it via js:
+
 ```js echo
 const someQuakes = await sql`SELECT * from quakes LIMIT 10`;
 
 display(Inputs.table(someQuakes));
 ```
 
+Its possible to name the `sql` result to get it's output on another fenced block later:
+
+````md
 ```sql id=[top] echo display
 SELECT * from quakes LIMIT 5; -- as top
 ```
+````
+
+Then:
+
+```sql id=[top] echo display
+SELECT * from quakes LIMIT 5; -- as top
+```
+
+You can access it on `js`:
 
 ```js echo
 display(top);
