@@ -23,7 +23,7 @@ process.stdout.write(JSON.stringify(await result.getRows()));
 ## On Client Side
 
 ```ts echo
-const duckTable = await FileAttachment("./data/duckdb-node.json").json();
+const duckTable = await FileAttachment("../../data/duckdb-node.json").json();
 
 // Array:
 display(duckTable);

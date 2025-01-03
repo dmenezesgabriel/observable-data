@@ -21,7 +21,7 @@ process.stdout.write(df.toJSON());
 ## On Client Side
 
 ```ts echo
-const polarsTable = await FileAttachment("./data/polars-node.json").json();
+const polarsTable = await FileAttachment("../../data/polars-node.json").json();
 
 display(polarsTable);
 ```

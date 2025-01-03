@@ -1,5 +1,4 @@
 // See https://observablehq.com/framework/config for documentation.
-
 import MarkdownItContainer from "markdown-it-container";
 import MarkdownItWikilinks from "markdown-it-wikilinks";
 import MarkdownItFootnote from "markdown-it-footnote";
@@ -48,4 +47,55 @@ export default {
       .use(MarkdownItContainer, "warning") // ::: warning
       .use(MarkdownItFootnote)
       .use(MarkdownItWikilinks()),
+
+  // pages: [
+  //   {
+  //     name: "Data Loaders",
+  //     open: true,
+  //     pages: [
+  //       {
+  //         name: "DuckDB Node.Js API",
+  //         path: "docs/data-loaders/duckdb-nodejs-api",
+  //       },
+  //       {
+  //         name: "Polars Node.Js API",
+  //         path: "docs/data-loaders/polars-nodejs-api",
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     name: "Data Exploration",
+  //     open: true,
+  //     pages: [
+  //       {
+  //         name: "DuckDB WASM API",
+  //         path: "docs/data-exploration/duckdb-wasm-api",
+  //       },
+  //       {
+  //         name: "PostgreSQL WASM API",
+  //         path: "docs/data-exploration/postgres-wasm-api",
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     name: "Machine Learning",
+  //     open: true,
+  //     pages: [
+  //       {
+  //         name: "Transformers.Js",
+  //         path: "docs/machine-learning/transformers-js",
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     name: "Web UI",
+  //     open: true,
+  //     pages: [
+  //       {
+  //         name: "React.Js",
+  //         path: "docs/web-ui/react-js",
+  //       },
+  //     ],
+  //   },
+  // ],
 };
