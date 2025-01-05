@@ -1,6 +1,5 @@
 // See https://observablehq.com/framework/config for documentation.
 import MarkdownItContainer from "markdown-it-container";
-import MarkdownItWikilinks from "markdown-it-wikilinks";
 import MarkdownItFootnote from "markdown-it-footnote";
 // import { pages } from "./src/utils/pages";
 
@@ -46,8 +45,7 @@ export default {
       .use(MarkdownItContainer, "card") // ::: card
       .use(MarkdownItContainer, "tip") // ::: tip
       .use(MarkdownItContainer, "warning") // ::: warning
-      .use(MarkdownItFootnote)
-      .use(MarkdownItWikilinks()),
+      .use(MarkdownItFootnote),
 
   // pages: pages,
 };
