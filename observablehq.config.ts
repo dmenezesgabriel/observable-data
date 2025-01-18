@@ -1,7 +1,20 @@
-// See https://observablehq.com/framework/config for documentation.
 import MarkdownItContainer from "markdown-it-container";
 import MarkdownItFootnote from "markdown-it-footnote";
+import { ProxyAgent, setGlobalDispatcher } from "undici";
+import { env } from "./src/env";
 // import { pages } from "./src/utils/pages";
+
+if (env.PROXY) {
+  const token = `Basic ${btoa(`${env.USERNAME}:${env.PASSWORD}`)}`;
+
+  const proxyAgent = new ProxyAgent({
+    uri: env.PROXY,
+    token,
+    requestTls: { rejectUnauthorized: false },
+  });
+
+  setGlobalDispatcher(proxyAgent);
+}
 
 export default {
   // The app’s title; used in the sidebar and webpage titles.
